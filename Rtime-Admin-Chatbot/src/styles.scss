@@ -1,0 +1,184 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+@include mat.core();
+@import 'node_modules/ngx-toastr/toastr.css';
+// @import 'ngx-toastr/toastr-bs4-alert';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$zoho-admin-primary: mat.define-palette(mat.$indigo-palette);
+$zoho-admin-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$zoho-admin-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$zoho-admin-theme: mat.define-light-theme((
+  color: (
+    primary: $zoho-admin-primary,
+    accent: $zoho-admin-accent,
+    warn: $zoho-admin-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($zoho-admin-theme);
+
+/* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body{
+  --text-color: black;
+  --bg-color:rgb(241, 235, 235);
+  --sub-bg-color:white;
+  --secondary-bg-color: rgb(208, 207, 207);
+  --tart-orange:#ff4747;
+  --light-pink: #ef42421f;
+  --primary-green: #13b542;
+  --light-green: #13b5421a;
+  --primary-color: #5371ff;
+  --blue-color:#2196F3;
+  --sidebar-hover:rgb(241, 235, 235);
+  --grey-color:rgba(255, 255, 255, 0.5);
+  --icons:rgb(241, 235, 235);
+}
+
+body.dark-theme{
+  --text-color: white;
+  --bg-color: #121212;
+  --sub-bg-color: black;
+  --secondary-bg-color: #111111;
+  --tart-orange:#ff4747;
+  --light-pink: #ef42421f;
+  --primary-green: #13b542;
+  --light-green: #13b5421a;
+  --primary-color: #5371ff;
+  --blue-color:#2196F3;
+  --sidebar-hover:#555;
+  --grey-color:rgba(255, 255, 255, 0.5);
+  --icons:white;
+  
+}
+
+*{
+  font-family: NotoSans-Regular;
+}
+/* Dark Theme Styles */
+// .dark-theme {
+//   background-color: #121212;
+//   color: #ffffff;
+// }
+.swal2-modal {
+  background-color:var(--bg-color);
+  padding:15px;
+  margin:0px;
+  border:2px solid  var(--sidebar-hover);
+  border-radius: 15px;
+}
+
+.mat-typography p {
+  margin:5px 0;
+  color:var(--primary-color);
+}
+
+.swal2-actions{
+  margin:5px 0;
+  width:100%;
+}
+.swal2-info {
+  border-color: var(--sidebar-hover);
+  color: var(--primary-color);
+}
+.swal2-html-container{
+  color:var(--text-color) !important;
+}
+.swal2-icon{
+  margin: .5em auto 0.6em;
+}
+.mat-typography h2{
+  margin:0;
+  color:var(--text-color);
+}
+/* You can add global styles to this file, and also import other style files */
+
+@import "jsoneditor/dist/jsoneditor.css";
+:root {
+  --primary-color: #5371ff;
+  --primary-text-grey: #ffffff80;
+  --primary-black: #000;
+  --primary-white: #fff;
+  --primary-danger: #e94f3f;
+  --primary-pink: #ce2bdd;
+  --primary-orange: #e0944c;
+  --primary-green: #13b542;
+  --secondary-black: #111111;
+  --ripple-outer: #ffffff12;
+  --sub-text-color: #ffffff8c;
+  --secondary-input-background: #121212;
+  --kardi-pagination-blue: #1a2249;
+  --border-white-color: #ffffff4d;
+  --border-top-grey: #dee2e6;
+  --border-bottom-black: #1a1a1a;
+  --unmellow-yellow: #ffffff66;
+  --vivid-yellow: #ffffff1a;
+  --anti-flash-white: #f3f4f5;
+  --sidebar-border-color: #ffffff33;
+  --granite-gray: #666666;
+  --white-smoke: #f5f5f5;
+  --hawkes-blue: #dfe1e4;
+  --dark-charcoal: #333333;
+  --classic-gray: #959494;
+  --chinese-silver: #cccccc;
+  --tart-orange: #ff4747;
+  --spanish-gray: var(--spanish-gray);
+  --sunset-orange: #ff5959;
+  --dark-liver: #4d4d4d;
+  --tahini: #deb875;
+  --light-green: #13b5421a;
+  --light-pink: #ef42421f;
+  --dark-red: rgb(255, 25, 0);
+  --venetian-red: #aa263f;
+  --meduim-grey: #c4c3c3;
+  --box-hadow-grey: #00000033;
+  --eerie-black: #1b1b1b;
+  --philippine-gray: #938f8f;
+  --lotion-white: #fbfbfb;
+  --close-icon-bg-color: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+  --required-color: #ec5c4d;
+}
+* {
+  // font-family: NotoSans-Regular;
+}
+.text-white {
+  color: var(--primary-white) !important;
+}
+
+.text-secondary {
+  color: var(--primary-text-grey) !important;
+}
+
+body {
+  background-color: var(--secondary-black);
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,281 @@
+// Styles for custom title
+.custom-title-class {
+    font-size: 20px;
+    color: var(--text-color);
+    /* Your desired color */
+}
+
+// Styles for custom text
+.custom-text-class {
+    font-size: 16px;
+    color: var(--text-color);
+        /* Your desired color */
+}
+
+.swal2-content {
+    color: var(--text-color) !important;
+}
+
+//   chatbot scss
+
+
+/* Styles for the chatbot container */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color:var(--sub-bg-color);
+    color: white;
+    border-radius: 15px;
+    
+}
+/* Light theme */
+:root {
+    --sub-bg-color: #3498db; /* Example background color */
+  }
+  
+  /* Dark theme */
+  .dark-theme {
+    --sub-bg-color: #2c3e50; /* Example background color for dark theme */
+  }
+  
+  /* Apply box shadow for dark theme */
+  .dark-theme .header {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Example box shadow for dark theme */
+  }
+.header-tittle{
+    font-size:20px;
+    color:var(--primary-color);
+    font-weight: bold;
+}
+/* Style for logo */
+.logo {
+    width: 40px;/* Adjust the width as needed */
+    height: 40px;
+    border-radius: 50%;
+}
+
+.close-btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 0 5px;
+    background-color:var(--primary-color);
+}
+
+/* Style for close icon */
+.close-icon {
+    width: 15px;
+    /* Adjust the width as needed */
+    height: 20px;
+   
+    /* Adjust the height as needed */
+    color:white;
+    font-size:10px;
+   
+    /* Adjust the color as needed */
+}
+
+.close-btn:hover .close-icon {
+    fill: #555;
+    /* Adjust the hover color as needed */
+}
+.chatbot {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 550px;
+    border: 5px solid var(--bg-color);
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+    padding: 10px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    position: fixed;
+    bottom: 8%;
+    right: 25px;
+    animation: boxShadowAnimation 2s infinite alternate;
+    z-index: 1000;
+}
+/* Light theme */
+:root {
+    --box-shadow-color-light: rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Dark theme */
+  .dark-theme {
+    --box-shadow-color-dark: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Animation */
+  @keyframes boxShadowAnimation {
+    0% {
+      box-shadow: 0 0 10px var(--box-shadow-color-light);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+    100% {
+      box-shadow: 0 0 10px var(--box-shadow-color-light);
+    }
+  }
+  /* Dark theme style */
+.dark-theme .chatbot {
+    animation: boxShadowAnimation 2s infinite alternate;
+    --box-shadow-color-light: rgba(0, 0, 0, 0.3);
+    --box-shadow-color-dark: rgba(255, 255, 255, 0.3);
+  }
+@media screen and (max-width: 826px) {
+   .chatbot{
+    position:fixed;
+    bottom: 5px;
+    right: 5px ;
+   }
+  }
+  @media screen and (max-width: 1032px) {
+    .chatbot{
+     position:fixed;
+     bottom: 5px;
+     right: 5px ;
+    }
+   }
+
+/* Styles for the messages container */
+.messages {
+    max-height: 65%;
+    /* Limit the height of the messages container */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    padding: 10px; /* Add some padding for aesthetics */
+    scrollbar-width: thin; /* Set the scrollbar width */
+    scrollbar-color: var(--bg-color); 
+    scroll-behavior: smooth;
+}
+
+/* Styles for individual messages */
+.message {
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    max-width:50%;
+    word-wrap: break-word; 
+    overflow:hidden;
+}
+
+/* Styles for messages from user1 */
+.user1 {
+    background-color:var(--sub-bg-color);
+    color: var(--text-color);
+    align-self: flex-start;
+    max-width:max-content;
+    margin-right:auto;
+    text-align:left;
+    word-wrap: break-word; 
+    overflow:hidden;
+    font-size:15px;
+}
+
+/* Styles for messages from user2 */
+.user2 {
+    background-color: var(--sub-bg-color);
+    color: var(--text-color);
+    align-self: flex-end;
+    margin-left: auto;
+    text-align: right;
+    max-width:max-content;
+    word-wrap: break-word; 
+    overflow:hidden;
+    font-size:15px;
+}
+.logo-side {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+  }
+  
+  .logo-side img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Makes the image round */
+  }
+/* text-msg style*/
+.input-line {
+    position:absolute;
+    top:80%;
+    width:95%;
+    border-bottom: 2px solid var(--sub-bg-color); /* Style of the line */
+    margin-bottom: 15px; 
+    margin:auto 0 15px;/* Spacing between line and input field */
+    background-color: var(--sub-bg-color);
+    height:80px;
+    border-radius:15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+
+/* Styles for input field */
+input[type="text"] {
+    width:280px;
+    /* Adjust the width of the input field */
+    border: 1px solid var(--sub-bg-color);
+    background-color: var(--bg-color);
+    border-radius: 15px;
+    padding: 8px;
+    margin-top: 10px;
+    margin-left:12px;
+    font-size: 14px;
+    outline: none;
+    color:var(--text-color);
+}                  
+
+// text msg div
+.text-msg {
+    display: flex;
+    flex-direction: row;
+    margin:auto 10px auto 10px;
+    position: fixed;
+    bottom:14.5%;
+}
+
+
+
+/* Styles for send button */
+button {
+    /* Adjust the width of the send button */
+    border: 2px solid white;
+    border-radius: 15px;
+    // padding: 0px 5px;
+    font-size: 5px;
+    // background-color:var(--primary-color);
+    /* Blue background for the send button */
+    color: #fff;
+    /* White text color */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover styles for send button */
+// button:hover {
+//     background-color: var(--primary-color);
+//     /* Darker blue on hover */
+// }
+
+.send-btn{
+    margin-left: 10px;
+    margin-top:10px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    cursor: pointer;
+}
+.send-icon{
+    padding: 10px;
+    border: 1px solid var(--sub-bg-color);
+    background-color: var(--bg-color);
+    border-radius: 15px;
+    font-size:10px;
+}

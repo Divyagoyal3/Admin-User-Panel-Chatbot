@@ -1,0 +1,143 @@
+<!--Dashboard Design-->
+
+<div class="container-fluid dashboard">
+
+   <!--TopBar-->
+   <div class="top-section">
+      <div class="date-container">{{ date }} - {{ time }} {{ meridiem }}
+</div>
+      <div class="refresh-container"><img class="refresh-img" src="../assets/images/refresh2.png" alt="">
+         <span>Refresh</span>
+      </div>
+   </div>
+
+
+   <!-- Main Content -->
+   <div class="users-section">
+      <div class="users-container">
+         <div class="total-users total-count">
+            <p> Total Users </p> <br />
+            <h3>{{totalUserCount}}</h3>
+         </div>
+      </div>
+
+      <!--Other Users-->
+      
+      <div class="row" >
+
+         <!--First User-->
+         <div class="col-md-6 ">
+            <div class="d-flex justify-content-between align-items-center total-users">
+               <div class="text-container">
+                  <p style="margin-bottom: 8px;">
+                     Filled Timesheet Count
+                  </p>
+                  <h3 class="users-count">{{filledTimeSheet}}</h3>
+               </div>
+               <!-- <div class="percent-count percent-up">
+                  <img alt="" src="../assets/images/Vector.svg">
+                  <span>100%</span>
+               </div> -->
+            </div>
+         </div>
+
+         <!--Second User-->
+         <div class="col-md-6">
+            <div class="d-flex justify-content-between align-items-center total-users total-bot-users">
+               <div class="text-container">
+                  <p style="margin-bottom: 8px;">
+                     Missed Timesheet Count
+                  </p>
+                  <h3 class="users-count">{{missedTimeSheet}}</h3>
+               </div>
+               <!-- <div class="percent-count percent-down">
+                  <img alt="" src="../assets/images/bi_arrow-down.svg">
+                  <span>35%</span>
+               </div> -->
+            </div>
+         </div>
+
+
+      </div>
+      <!--Other Left Users-->
+
+      <div class="row" >
+
+         <!--Third User-->
+         <div class="col-md-6 ">
+            <div class="d-flex justify-content-between align-items-center total-users">
+               <div class="text-container">
+                  <p style="margin-bottom: 8px;">
+                     Total Timesheet hours
+                  </p>
+                  <h3 class="users-count">{{totalTimeSheetHours}}</h3>
+               </div>
+               <!-- <div class="percent-count percent-up">
+                  <img alt="" src="../assets/images/Vector.svg">
+                  <span>100%</span>
+               </div> -->
+            </div>
+         </div>
+
+         <!--Fourth User-->
+         <div class="col-md-6 ">
+            <div class="d-flex justify-content-between align-items-center total-users total-bot-users">
+               <div class="text-container">
+                  <p style="margin-bottom: 8px;">
+                     Incorrect Timesheet Count 
+                  </p>
+                  <h3 class="users-count">{{totalCountOfIncorrectTimesheet}}</h3>
+               </div>
+               <!-- <div class="percent-count percent-down">
+                  <img alt="" src="../assets/images/bi_arrow-down.svg">
+                  <span>35%</span>
+               </div> -->
+            </div>
+         </div>
+
+      </div>
+   </div>
+
+   <!--Active Users-->
+   <div class="active-users">
+      <div class="add-users-section">
+         <div class="d-flex">
+            <div class="active text-center d-flex flex-column" *ngFor="let users of totalActiveUsers">
+               <div class="position-relative img-active justify-content-center">
+                  <img [src]="users?.profilePic" class = "profile-img" alt="{{ users?.name }}"/>
+                  <div class="active-user"></div>
+                </div>
+               <div class="active-text text-center justify-content-center">
+                  <h6 class = "text-center" style="height:30px;">{{ users?.name }}</h6>
+               </div>
+            </div>
+
+            <!-- <div class="active">
+                  <div class="add-user-icon ">
+                     <img src="../assets/images/fa6-solid_plus.svg" alt="">
+                  </div>
+                  <h6 class="add-new-text mb-3">
+                     Add New
+                  </h6>
+               </div> -->
+         </div>
+      </div>
+   </div>
+
+
+   <!--Charts-->
+   <div class="charts-section">
+      <div class="row">
+         <div class="col-md-6">
+            <app-rtime-circular-chart [showCountryIcon]="true"></app-rtime-circular-chart>
+         </div>
+
+         <div class="col-md-6">
+            <app-rtime-line-chart [showCountryIcon]="true"></app-rtime-line-chart>
+         </div>
+      </div>
+      <span><img src="assets/chatlogo.gif" *ngIf="showChatbotIcon" class="mat-icon-position" alt="Logo" (click)="toggleChatbot()" ></span>
+      <span class="chatbot-text" *ngIf="showChatbotIcon">May I help you?</span>
+      <app-chatbot  [showPopUp]="showChatbot" (popUp)="toggleChatbot()"></app-chatbot>
+   </div>
+   <!-- </div> -->

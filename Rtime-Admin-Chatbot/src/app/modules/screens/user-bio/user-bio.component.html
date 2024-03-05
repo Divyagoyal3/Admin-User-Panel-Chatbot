@@ -1,0 +1,48 @@
+<div class="large-container">
+  <app-sidebar></app-sidebar>
+  <div class="main-container">
+    <div class="top-section">
+      <div class="date-container">{{ date }} - {{ time }} {{ meridiem }}</div>
+      <div class="refresh-container cursor-pointer" (click)="refreshBtn()">
+        <img src="/assets/refresh.svg" alt="refresh" />
+        <span class="refresh-txt">Refresh</span>
+      </div>
+    </div>
+    <div class="userBio">
+      <div class="upper">
+        <img
+          class="arrow"
+          src="/assets/single-left-arrow-blue.svg"
+          alt="arrow"
+          (click)="goBack()"
+        />
+        <p class="user-mngt-txt">User Management Details</p>
+      </div>
+      <div class="user-data">
+        
+        <div class="user-image-div"*ngFor="let item of tableData.tbody">
+          <img
+            class="user-image"
+            src="{{ item.profilePic}}"
+            alt="user"
+          />
+          <div class="bio" *ngFor="let item of tableData.tbody">
+            <div class="user-name " *ngIf="allData">{{ item.name }}</div>
+            <div class="user-id " *ngIf="allData">#{{ item.emp_id }}</div>
+            </div>
+        </div>
+        <div class="details" *ngFor="let item of tableData.tbody">
+          <div class="info">
+            <div class="name text"><span class="labels">Name-:</span><span class="data">&nbsp;{{ item.name }}</span></div>
+            <div class="name id"><span class="labels">EMP ID-:</span><span class="data">&nbsp;#{{ item.emp_id }}</span></div>
+            <div class="name role"><span class="labels">Role-:</span><span class="data">&nbsp;{{ item.role.name }}</span></div>
+            <div class="name email"><span class="labels">Email-:</span><span class="data">&nbsp;{{ item.email }}</span></div>
+          </div>
+        </div>
+        <!-- <div class="user-role username" *ngIf='allData'>{{ allData.result.role.name }}</div> -->
+        <!-- <div class="user-bio">{{userData.bio}}</div> -->
+      </div>
+    </div>
+</div>
+</div>
+

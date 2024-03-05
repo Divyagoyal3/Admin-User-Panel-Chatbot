@@ -1,0 +1,39 @@
+<div class="large-container">
+    <div class="side">
+    </div>
+  
+    <div class="main-container">
+      <div class="top-section">
+        <div class="date-container">{{ date }} - {{ time }} {{ meridiem }}</div>
+        <div class="refresh-container cursor-pointer">
+          <img src="assets/refresh.svg" alt="" />
+          <span class="refresh-txt">Refresh</span>
+        </div>
+      </div>
+  
+      <div class="userBio">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="username">{{ allData.result?.name }}</div>
+        <div class="user-image-div">
+          <img
+            class="user-image"
+            src="{{ allData.result.profilePic }}"
+            alt="user"
+          />
+        </div>
+        <div class="user-email username">{{ allData.result?.email }}</div>
+        <div class="user-role username">{{ allData.result.role?.name }}</div>
+        <!-- <div class="user-bio">{{userData.bio}}</div> -->
+      </div>
+  
+        <!-- <div class="user-bio">{{userData.bio}}</div> -->
+      <div class="table">
+        <div class="timesheet-container">
+          User Logs <img src="assets/calendar.svg" alt="" />
+        </div>  
+        <app-table [userData]="tableData"></app-table>
+      </div>
+    </div>
+  </div>
+  

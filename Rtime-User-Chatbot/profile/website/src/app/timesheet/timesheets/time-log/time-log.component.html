@@ -1,0 +1,269 @@
+ <!-- <div class="outer-container">
+     <button class="toggle-button" (click)="toggleSidebar()">Toggle Sidebar</button> 
+    <div class="container" [style.right]="sidebarOpened ? '0px' : '-600px'" id="sidebar">
+        <div class="header">New Time Log</div>
+        <p>Time logging is not allowed for future dates</p>
+        <div class="project">
+            <div class="project-label">Project*</div>
+            <select class="project-select" #projectSelect (change)="onProjectSelected(projectSelect.value)">
+                <option value="">Select Project</option>
+                <option value="RTime">RTime</option>
+                <option value="Training and Development">Training and Development</option>
+                <option value="Internal Meetings">Internal Meetings</option>
+            </select>
+        </div>
+         <div class="button-container">
+            <button class="button add-button" (click)="onAddClicked()">Add</button>
+            <button class="button cancel-button" (click)="toggleSidebar()">Cancel</button>
+        </div>
+    </div> 
+    <div *ngIf="selectedOption === 'RTime' || selectedOption === 'Training and Development'  || selectedOption === 'Internal Meetings'">
+        
+    </div>
+
+</di 
+    <button class="button cancel-button" (click)="toggleSidebar()">Cancel</button>-->
+
+     <!-- <button class="toggle-button" (click)="toggleSidebar()">Click Me</button> -->
+     <div class="outer-container">
+     <div class="container" [style.right]="sidebarOpened ? '0px' : '-600px'" id="sidebar"> 
+        <div class="header">New Time Log</div>
+        <p>Time logging is not allowed for future dates</p>
+        <div class="project">
+            <div class="project-label">Project*</div>
+            <select class="project-select" #projectSelect (change)="onProjectSelected(projectSelect.value)">
+                <option value="">Select Project</option>
+                <option value="RTime">RTime</option>
+                <option value="Training and Development">Training and Development</option>
+                <option value="Internal Meetings">Internal Meetings</option>
+            </select>
+        </div>
+        <div
+        *ngIf="selectedOption === 'RTime' || selectedOption === 'Training and Development'  || selectedOption === 'Internal Meetings'">
+        <!-- <app-timesheet-info [selectedProject]="selectedOption"></app-timesheet-info> -->
+
+        <div class="outer-container" [style.display]="addClicked ? 'none' : 'block'">
+            <div class="container">
+                <div class="header">
+                    New Time Log
+                </div>
+                <p>Time logging is not allowed for future dates</p>
+                <form [formGroup]="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="timesheet-info">
+                        <div class="projectName" style="color:white;margin-left: 17px;
+        ">Project *<br><input value="{{ selectedOption }}"
+                                style="background-color: white;border: unset;border-radius: 2px;"></div>
+                        <div class="date-field">
+                            <label for="date">Date *</label>
+                            <!-- Set max attribute to prevent future dates -->
+                            <!-- <input type="date" style="background-color: #b3adad;border:unset;border-radius: 3px;"
+                                id="iso-time" name="iso-time" formControlName="date"
+                                max="{{ currentDate() | date: 'yyyy-MM-ddTHH:mm:ss' }}" #dateSelect
+                                (change)="onDateSelected(dateSelect.value)" /> -->
+                            <input type="date" style="background-color: white;border:unset;border-radius: 3px;"
+                                id="iso-time" name="iso-time" formControlName="date" [max]="getCurrentDate()"
+                                #dateSelect (change)="onDateSelected(dateSelect.value)" />
+
+                            <div *ngIf="ngForm.get('date')?.invalid && ngForm.get('date')?.touched"
+                                class="error-message">
+                                Date is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-field">
+                        <label for="user">User *</label>
+                        <input type="text" id="user" placeholder="User Name"
+                            style="background-color: white;border-color: white;;border-radius: 3px;"
+                            name="username" formControlName="username" required #selectUser
+                            (change)="onSelectedUser(selectUser.value)" />
+                        <div *ngIf="ngForm.get('username')?.invalid && ngForm.get('username')?.touched"
+                            class="error-message">
+                            User name is required
+                        </div>
+                    </div>
+                    <div class="daily-log">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Start Time *</th>
+                                    <th>End Time *</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <!-- <td>
+                                        <input id="start-time" type="time"
+                                                style="background-color: #b3adad;border:unset;border-radius: 3px;"
+                                                name="startTime" formControlName="startTime" required
+                                                max="{{ currentDate() | date: 'yyyy-MM-ddTHH:mm:ss' }}" #selectedStartTime (change)="onSelectedStartTime(selectedStartTime.value)" />
+                                        <div *ngIf="ngForm.get('startTime')?.invalid && ngForm.get('startTime')?.touched" class="error-message">
+                                                Start Time is required
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <input id="end-time" type="time"
+                                                style="background-color: #b3adad;border:unset;border-radius: 3px;"
+                                                name="endTime" formControlName="endTime" required
+                                                max="{{ currentDate() | date: 'yyyy-MM-ddTHH:mm:ss' }}" #selectedEndTime (change)="onSelectedEndTime(selectedEndTime.value)"/>
+                                        <div *ngIf="ngForm.get('endTime')?.invalid && ngForm.get('endTime')?.touched" class="error-message">
+                                                End Time is required
+                                        </div>
+                                    </td> -->
+
+
+                                    <td><input id="start-time" type="time"
+                                            style="background-color: white;border:unset;border-radius: 3px;"
+                                            name="startTime" formControlName="startTime" required
+                                            max="{{ currentDate() | date: 'yyyy-MM-ddTHH:mm:ss' }}"
+                                            [(ngModel)]="startTime" (ngModelChange)="calculateTotalHoursAndMinutes()"
+                                            #selectedStartTime
+                                            (change)="onSelectedStartTime(selectedStartTime.value)" (ngModelChange)="validateTimeRange()"/></td>
+                                    <td><input id="end-time" type="time"
+                                            style="background-color: white;border:unset;border-radius: 3px;"
+                                            name="endTime" formControlName="endTime" required
+                                            max="{{ currentDate() | date: 'yyyy-MM-ddTHH:mm:ss' }}"
+                                            [(ngModel)]="endTime" (ngModelChange)="calculateTotalHoursAndMinutes()"
+                                            #selectedEndTime (change)="onSelectedEndTime(selectedEndTime.value)" (ngModelChange)="validateTimeRange()"/></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                    <div class="notes">
+                        <label for="notes">Notes *</label>
+                        <textarea id="notes" rows="4" cols="10" placeholder="Write a Note Here"
+                            style="background-color: white;border-color: white;border-radius: 3px"
+                            formControlName="notes" required #selectedNotes
+                            (change)="onSelectedNotes(selectedNotes.value)"></textarea>
+                        <div *ngIf="ngForm.get('notes')?.invalid && ngForm.get('notes')?.touched" class="error-message">
+                            Notes is required
+                        </div>
+                    </div>
+                    <div class="button-container" >
+                        <!-- (click)="navigateToOtherComponent()" -->
+                           <!-- Voice listener button -->
+                        <!-- <button class="voice-btn" >
+                            🎙️
+                        </button> -->
+                        <button class="button add-button" value="Add" type="submit"
+                            (click)="navigateToAdded()">Add</button>
+                            
+         
+                        <!-- <button class="button cancel-button" routerLink="time-log">Cancel</button> -->
+                        <button class="button cancel-button" (click)="toggleSidebar()">Cancel</button>
+                        <!-- <app-listener
+                        [showPopup]="showProfileComponent" 
+                        ></app-listener> -->
+                       
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        <div class="button-container" >
+              <button class="button add-button" (click)="onAddClicked()">Add</button>
+            <button class="button cancel-button" (click)="toggleSidebar()">Cancel</button>
+        </div>
+
+    </div>
+  </div>
+    
+    <!-- <div
+        *ngIf="selectedOption === 'RTime' || selectedOption === 'Training and Development'  || selectedOption === 'Internal Meetings'">
+
+        <div class="outer-container" [style.display]="addClicked ? 'none' : 'block'">
+            <div class="container">
+                <div class="header">
+                    New Time Log
+                </div>
+                <p>Time logging is not allowed for future dates</p>
+                <form [formGroup]="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="timesheet-info">
+                        <div class="projectName" style="color:white;margin-left: 17px;
+        ">Project *<br><input value="{{ selectedOption }}"
+                                style="background-color: white;border: unset;border-radius: 2px;"></div>
+                        <div class="date-field">
+                            <label for="date">Date *</label>
+                           
+                            <input type="date" style="background-color: white;border:unset;border-radius: 3px;"
+                                id="iso-time" name="iso-time" formControlName="date" [max]="getCurrentDate()"
+                                #dateSelect (change)="onDateSelected(dateSelect.value)" />
+
+                            <div *ngIf="ngForm.get('date')?.invalid && ngForm.get('date')?.touched"
+                                class="error-message">
+                                Date is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-field">
+                        <label for="user">User *</label>
+                        <input type="text" id="user" placeholder="User Name"
+                            style="background-color: white;border-color: white;;border-radius: 3px;"
+                            name="username" formControlName="username" required #selectUser
+                            (change)="onSelectedUser(selectUser.value)" />
+                        <div *ngIf="ngForm.get('username')?.invalid && ngForm.get('username')?.touched"
+                            class="error-message">
+                            User name is required
+                        </div>
+                    </div>
+                    <div class="daily-log">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Start Time *</th>
+                                    <th>End Time *</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                   
+
+
+                                    <td><input id="start-time" type="time"
+                                            style="background-color: white;border:unset;border-radius: 3px;"
+                                            name="startTime" formControlName="startTime" required
+                                            max="{{ currentDate() | date: 'yyyy-MM-ddTHH:mm:ss' }}"
+                                            [(ngModel)]="startTime" (ngModelChange)="calculateTotalHoursAndMinutes()"
+                                            #selectedStartTime
+                                            (change)="onSelectedStartTime(selectedStartTime.value)" (ngModelChange)="validateTimeRange()"/></td>
+                                    <td><input id="end-time" type="time"
+                                            style="background-color: white;border:unset;border-radius: 3px;"
+                                            name="endTime" formControlName="endTime" required
+                                            max="{{ currentDate() | date: 'yyyy-MM-ddTHH:mm:ss' }}"
+                                            [(ngModel)]="endTime" (ngModelChange)="calculateTotalHoursAndMinutes()"
+                                            #selectedEndTime (change)="onSelectedEndTime(selectedEndTime.value)" (ngModelChange)="validateTimeRange()"/></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                    <div class="notes">
+                        <label for="notes">Notes *</label>
+                        <textarea id="notes" rows="4" cols="10" placeholder="Write a Note Here"
+                            style="background-color: white;border-color: white;border-radius: 3px"
+                            formControlName="notes" required #selectedNotes
+                            (change)="onSelectedNotes(selectedNotes.value)"></textarea>
+                        <div *ngIf="ngForm.get('notes')?.invalid && ngForm.get('notes')?.touched" class="error-message">
+                            Notes is required
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button class="button add-button" value="Add" type="submit"
+                            (click)="navigateToAdded()">Add</button>
+                        <button class="button cancel-button" routerLink="time-log">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+<!-- </div> -->
+
+<!-- <div *ngIf="ngForm.valid && addClicked">
+    <app-added [totalHours]="totalHours" [totalMinutes]="totalMinutes" [selectedOption]="selectedOption"
+        [selectedDate]="selectedDate" [selectedUser]="selectedUser" [selectedNotes]="selectedNotes"
+        [selectedStartTime]="selectedStartTime" [selectedEndTime]="selectedEndTime"></app-added>
+</div> -->

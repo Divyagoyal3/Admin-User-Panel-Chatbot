@@ -1,0 +1,47 @@
+<!-- <p *ngIf="showPopUp" style="background-color: black;color:white; position: absolute; top:65%; left:90%;">chatbot works!</p> -->
+
+
+
+  <div *ngIf="showPopUp" class="chatbot">
+    <div class="header">
+      <div *ngIf="messages.sender === 'user1'" class="logo-side">
+        <!-- Logo for AI -->
+        <img src="assets/images/ai_logo.png" class="logo" alt="AI Logo">
+      </div>
+      <img src="assets/chatlogo.gif" class="logo" alt="Logo">
+      <span class="header-tittle">RTime</span>
+      <span class="close-btn" (click)="closeChatbot()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="close-icon">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" fill="white" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg><!-- Assuming you're using Font Awesome for the close icon -->
+      </span>
+      <div *ngIf="messages.sender === 'user2'" class="logo-side">
+        <!-- Logo for user2 -->
+        <img src="assets/user-image.png" class="logo" alt="User Logo">
+      </div>
+    </div>
+    <div class="messages"  id="msgContainer" >
+      <div *ngFor="let message of messages" class="message" [ngClass]="{'user1': message.sender === 'user1', 'user2': message.sender === 'user2'}">
+        {{ message.content }}
+      </div>
+    </div>
+    <div class="input-line"></div> 
+    <div class="text-msg">
+      <input type="text" [(ngModel)]="newMessage" (keydown.enter)="sendMessage()" placeholder="Type Your message...">
+      <!-- <div class="voice-btn" (click)="startVoiceListening()">🎙️</div>Add voice listener button -->
+      <!-- <div class="emoji-btn" (click)="toggleEmojiPicker()">😊</div>Add emoji button -->
+      <span class="send-btn" (click)="sendMessage()">
+        <span class="send-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--primary-color)" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm2.646 7.646a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.293 7 7.646 8.646a.5.5 0 1 0 .708.708l3-3z"/>
+        </svg></span>
+      </span>
+      
+      <!-- <div class="stop-btn" (click)="stopVoiceListening()">Stop</div>Add stop recording icon -->
+    </div>
+    
+    <!-- <div class="emoji-picker">
+      <app-emoji-picker [openSelector] ="showEmojiPicker" (emojiClick)="addEmoji($event)"></app-emoji-picker>
+    </div> -->
+    
+  </div>

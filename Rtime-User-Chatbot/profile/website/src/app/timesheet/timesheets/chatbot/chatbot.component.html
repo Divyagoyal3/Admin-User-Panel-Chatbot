@@ -1,0 +1,40 @@
+<!-- <p *ngIf="showPopUp" style="background-color: black;color:white; position: absolute; top:65%; left:90%;">chatbot works!</p> -->
+
+
+
+<div *ngIf="showPopUp" class="chatbot">
+  <div class="header">
+    <img src="assets/chatlogo.gif" class="logo" alt="Logo">
+    <span class="header-tittle">RTime</span>
+    <button class="close-btn" (click)="closeChatbot()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="close-icon">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg><!-- Assuming you're using Font Awesome for the close icon -->
+    </button>
+  </div>
+  <div class="messages">
+    <div *ngFor="let message of messages" class="message"
+      [ngClass]="{'user1': message.sender === 'user1', 'user2': message.sender === 'user2'}">
+      {{ message.content }}
+    </div>
+  </div>
+  <div class="input-line"></div>
+  <div class="text-msg">
+    <input type="text" [(ngModel)]="newMessage" (keydown.enter)="sendMessage()" placeholder="Your message...">
+
+    <div class="voice-btn" (click)="startRecording()">🎙️</div>
+    <!-- <button class="stop-btn"  (click)="stopRecording()">Stop</button> -->
+    <audio controls *ngIf="audioUrl">
+      <source [src]="audioUrl" type="audio/mp3" id='recording-audio' accept="Audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+    <!-- <div class="emoji-btn" (click)="toggleEmojiPicker()">😊</div>Add emoji button -->
+    <button class="send-btn" (click)="sendMessage()">Send</button>
+
+  </div>
+
+
+
+</div>

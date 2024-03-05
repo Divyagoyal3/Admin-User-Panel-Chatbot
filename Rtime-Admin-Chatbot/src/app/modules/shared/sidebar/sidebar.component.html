@@ -1,0 +1,92 @@
+
+<div class="main-container">
+  <div class="sidebar-wrapper" [ngClass]="{ 'sidebar-wrapper-new': toggleSidebar }">
+    <div class="image">
+      <img
+        class="relinns-logo"
+        src="/assets/relinns logo.png"
+        alt="relinns"
+        (click)="toggleSidebarFn()"
+      />
+      <!-- <h3>R <br>Time</h3> -->
+    </div>
+    <div class="side-data">
+      <ul>
+        <a routerLink="/dashboard" routerLinkActive="active" class="side-link">
+          <li class="side-link" routerLinkActive="active">
+            <span class="nav-text">
+              <img class="side-icons" src="/assets/dashboard-icon.svg" alt="" />
+              <h6 class="side-text">Dashboard</h6>
+            </span>
+          </li>
+        </a>
+        <a routerLink="/user-management" routerLinkActive="active" class="side-link">
+          <li class="side-link" routerLinkActive="active">
+            <span class="nav-text">
+              <img class="side-icons" src="/assets/user-icon.svg" alt="User Management" />
+              <h6 class="side-text">User Management</h6>
+            </span>
+          </li>
+        </a>
+        <a routerLink="/timesheet" routerLinkActive="active"  class="side-link">
+          <li class="side-link" routerLinkActive="active">
+            <span class="nav-text">
+              <img class="side-icons" src="/assets/customer-icon.svg" alt="" />
+              <h6 class="side-text">Timesheet</h6>
+            </span>
+          </li>
+        </a>  
+      </ul>
+    </div>
+    <div class="theme">
+      <div class="theme-name">Theme</div>
+      <div class="theme-icon">
+        <label class="toggle-container">
+          <input type="checkbox" class="toggle-input" (change)="toggleTheme()" [checked]="isDarkMode" />
+
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+      <div class="profile" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img class="user-image" [src]="userdata.profilePic" alt="user">
+        <div class="profile-info">
+          <p class="user-name">{{userdata.name}}</p>
+          <p class="user-email">{{userdata.email}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade profile-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" style="z-index: 1000">
+        <div class="modal-content profile-bg">
+          <div class="modal-header p-0">
+            <span>Profile</span>
+            <div><button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button></div>
+          </div>
+          <div class="profile-image text-center ">
+            <img class="profile-picture" [src]="userdata.profilePic" alt="Profile Picture">
+          </div>
+          <div class="data">
+            <h2 class="text-data">
+              {{userdata.name}}
+            </h2>
+            <h5 class="text-data">
+              {{userdata.emp_id}}
+            </h5>
+            <h6 class="text-data">
+              {{ userdata.email }}
+            </h6>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" style="height:48px; border-radius: 12px;" (click)="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  
+  
+  <div class="router-container"></div>

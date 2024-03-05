@@ -1,0 +1,21 @@
+<div class="large-container">
+  <app-sidebar ></app-sidebar>
+<div class="main-container">
+  <div class="top-section">
+      <div class="date-container">
+        {{ date }} - {{ time }} {{ meridiem}}
+      </div>
+      <div class="refresh-container cursor-pointer" (click)=refreshBtn()>
+          <img src="assets/refresh.svg" alt="refresh">
+          <span class="refresh-txt">Refresh</span>
+      </div>
+  </div>
+   <div class="table">
+    <div class="user-container"><p class=user-container-txt>User Management</p></div>
+       <app-table [userData]="tableData" (messageEvent)="receiveMessage($event)" (ProfileClickEvent)="onProfileClick($event)"></app-table>
+   </div>
+</div>
+</div>
+
+
+    

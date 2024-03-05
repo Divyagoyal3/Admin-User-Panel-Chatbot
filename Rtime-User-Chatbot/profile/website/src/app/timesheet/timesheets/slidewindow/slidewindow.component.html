@@ -1,0 +1,23 @@
+
+
+ <div class="outer-container" [style.display]="addClicked ? 'none' : 'block' ">
+    <div class="container" [style.right]="sidebarOpened ? '0px' : '-600px'" id="sidebar">
+        <div class="header">New Time Log</div>
+        <p style="padding-top:15px">Time logging is not allowed for future dates</p>
+        <div class="project">
+            <div class="project-label">Project*</div>
+            <select class="project-select" #projectSelect (change)="onProjectSelected(projectSelect.value)">
+                <option value="">Select Project</option>
+                <option value="RTime">RTime</option>
+                <option value="Training and Development">Training and Development</option>
+                <option value="Internal Meetings">Internal Meetings</option>
+            </select>
+        </div>
+        <div class="button-container">
+            <button class="button add-button" (click)="onAddClicked()">Add</button>
+            <button class="button cancel-button" (click)="toggleSidebar()">Cancel</button>
+        </div>
+    </div>
+    
+
+</div> 

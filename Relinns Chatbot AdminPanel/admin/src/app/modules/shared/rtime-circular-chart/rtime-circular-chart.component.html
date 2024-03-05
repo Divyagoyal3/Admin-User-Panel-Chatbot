@@ -1,0 +1,65 @@
+<div class="main-container position-relative">
+    <div class="top-bar d-flex justify-content-between">
+      <span class="graph-label">{{ title }}</span>
+      <!-- <div class="graph-icons">
+        <img src="../assets/images/country-icon.svg" class="cursor-pointer country-icon" (click)="onDropdownClick($event)"
+          *ngIf="showCountryIcon" />
+        <img src="../assets/images/calendar.svg" (click)="calendarClick()" class="cursor-pointer "
+          *ngIf="showCalendarIcon" />
+      </div> -->
+    </div>
+    <div class="plotly-graph-container d-flex justify-content-center">
+      <div id="graph"></div>
+    </div>
+    <div class="label-container d-flex flex-column justify-content-around">
+  
+      <div class="container">
+        <div class="row gy-1">
+          <div *ngFor="let label of labelContainer"
+            [ngClass]="label.value && !!label.value ? 'col-sm-12' : 'col-sm-6'">
+            <div *ngIf="label.value" class="label d-flex justify-content-between">
+              <div class="left-align">
+                <span class="dot" [ngStyle]="{ 'background-color': label.color }"></span>
+                <span class="label-title">{{ label.title }}</span>
+              </div>
+              <div *ngIf="label.value" class="right-align">
+                <span class="label-value">{{
+                  label.value.toLocaleString()
+                  }}</span>
+              </div>
+            </div>
+            <div *ngIf="!label.value && !label.value " class="label">
+              <span class="dot" [ngStyle]="{ 'background-color': label.color }"></span>
+              <span class="label-title">{{ label.title }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+    <mat-form-field class="calendar-picker">
+      <mat-date-range-input [rangePicker]="picker" class="calendar-input">
+        <input matStartDate placeholder="Start date" readonly (dateChange)="onStartDateChange($event)" />
+        <input matEndDate placeholder="End date" readonly (dateChange)="onEndDateChange($event)" />
+      </mat-date-range-input>
+      <mat-datepicker-toggle matIconSuffix [for]="picker" class="toggle"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  
+    <div *ngIf="showCountryDropdown" class="country-dropdown-container" (click)="$event.stopPropagation();">
+      <div class="position-relative">
+        <!-- <input class="kardi-search-field" autocomplete="off" type="text" [(ngModel)]="searchText" (keyup)="searchEvent();"
+          placeholder="Search..." /> -->
+        <img src="../assets/images/search.svg" alt="" class="position-absolute search-icon">
+      </div>
+      <div class="country-dropdown">
+        <div *ngFor="let country of countries" class="country d-flex justify-content-between"
+          (click)="onCountrySelect(country)">
+          <span [ngClass]="{'selected-option': country.name === selectedCountry.name}">({{country.dial_code}})
+            {{country.name}}</span>
+          <img src="../assets/images/dropdown-check.svg" alt="" *ngIf="country.name === selectedCountry.name">
+        </div>
+      </div>
+    </div>
+  </div>

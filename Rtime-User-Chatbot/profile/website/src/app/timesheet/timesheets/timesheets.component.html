@@ -1,0 +1,13 @@
+
+<div class="sidebar-container">
+    <app-sidenavbar>
+        <span><img src="assets/chatlogo.gif" class="mat-icon-position" alt="Logo" (click)="toggleChatbot()" ></span>
+     
+        <app-chatbot [showPopUp]="showChatbot" (popUp)="toggleChatbot()"></app-chatbot>
+        <app-uppercontent></app-uppercontent>
+        <app-table [userData]="tableData"></app-table>
+    </app-sidenavbar>  
+</div>
+
+
+

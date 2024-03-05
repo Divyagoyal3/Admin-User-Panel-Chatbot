@@ -1,0 +1,203 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: #fff;
+}
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.sub-container {
+  background-color: #1B1B1B;
+  border-radius: 5px;
+  padding: 65px;
+  text-align: center;
+  border:5px solid #5371FF;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+
+  100% {
+      transform: scale(1.05);
+  }
+}
+
+h2 {
+  font-size: 25px;
+  margin-bottom: 20px;
+  color: #fff
+}
+
+.google-btn {
+  display: inline-block;
+  background-color: #5371FF;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+span {
+  font-weight: 500;
+}
+
+.google-btn svg {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+
+
+@media screen and (max-width: 400px) {
+  .sub-container {
+      padding: 20px;
+  }
+
+  .logo {
+      width: 235px;
+      margin-bottom: 15px;
+  }
+
+  h2 {
+      font-size: 20px;
+  }
+
+  .google-btn {
+      font-size: 15px;
+      padding: 8px 15px;
+  }
+
+  .google-btn svg {
+      width: 28px;
+      height: 28px;
+  }
+
+  span {
+      font-size: 12px;
+  }
+
+
+}body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: #fff;
+}
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.sub-container {
+  background-color: #1B1B1B;
+  border-radius: 5px;
+  padding: 65px;
+  text-align: center;
+  border:5px solid #5371FF;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+
+  100% {
+      transform: scale(1.05);
+  }
+}
+
+h2 {
+  font-size: 25px;
+  margin-bottom: 20px;
+  color: #fff
+}
+
+.google-btn {
+  display: inline-block;
+  background-color: #5371FF;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+span {
+  font-weight: 500;
+}
+
+.google-btn svg {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+
+
+@media screen and (max-width: 400px) {
+  .sub-container {
+      padding: 20px;
+  }
+
+  .logo {
+      width: 235px;
+      margin-bottom: 15px;
+  }
+
+  h2 {
+      font-size: 20px;
+  }
+
+  .google-btn {
+      font-size: 15px;
+      padding: 8px 15px;
+  }
+
+  .google-btn svg {
+      width: 28px;
+      height: 28px;
+  }
+
+  span {
+      font-size: 12px;
+  }
+
+
+}

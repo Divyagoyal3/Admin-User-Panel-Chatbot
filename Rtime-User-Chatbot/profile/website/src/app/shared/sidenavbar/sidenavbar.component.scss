@@ -1,0 +1,276 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.refresh-button {
+  /* Add any button styles here */
+  display:flex;
+  padding:6px;
+  background-color: #121212;
+}
+
+.refresh-icon {
+  color: green;
+  padding-right: 1px;
+}
+
+.refresh-svg {
+  width: 30px;
+  height: 20px;
+ // vertical-align: middle;
+}
+.ishika{
+  border:1px solid white;
+}
+
+.sr-only {
+  /* Add styles for screen reader only text if needed */
+  // position: absolute;
+  // left: -9999px;
+  // width: 1px;
+  // height: 1px;
+  // overflow: hidden;
+  margin-top: 3px;
+  font-size: bolder;
+  font-weight: 600;
+}
+
+.date-time {
+  color: white;
+  margin-left: 11%;
+   font-size: medium;
+   padding:6px;
+   background-color:#121212;
+   /* Adjust the margin as needed */
+}
+.refresh-button {
+  display: flex;
+  flex-direction: row;
+  
+   /* Align items vertically */
+}
+
+
+mat-sidenav-content
+{
+  background-color: #121212;
+  overflow:hidden;
+  
+}
+// .mat-icon {
+//   color: white;
+//   font-size: med;
+//   margin-right: 5px; 
+// }
+
+.sr-only {
+  color: green;
+  font-size: medium;
+  font-weight:1500 ;
+}
+.spacer {
+  flex: 0.9; /* This pushes the refresh button to the right */
+}
+
+.Relinns_logo {
+  width: 60px !important;
+  height: 60px !important;
+  margin-left:-10px ;
+}
+mat-icon {
+  width: 150px !important;
+  height: 200px !important;
+  padding-top: -10px;
+  padding-bottom:30px;
+  // border:1px solid white;
+}
+
+svg {
+  margin-right: 6%;
+}
+svg .profile-svg{
+  margin-top:20px;
+}
+.list-item-align{
+  // padding-top: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  // border:1px solid white;
+  height: 80%;
+  align-items: center;
+  //padding-top: -600px;
+  margin-top:-100px;
+}
+.add-button img{
+  cursor: pointer;
+  width:90px;
+  height:90px;
+}
+.profile-align{
+  color: white; 
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+
+  
+}
+.profile-text{
+  color: grey;  
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+}
+mat-sidenav
+{
+  position:fixed;
+  left:0;
+  padding-top: 4rem;
+  width:220px !important;
+  border-right: #eee !important;
+  min-width:200px !important;
+  background-color: #121212 !important;
+  
+}
+.separator {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: none;
+  height: 1px;
+  background-color: #333333;
+}
+mat-toolbar
+{
+  position:sticky;
+  top:0;
+  z-index: 100;
+  
+}
+
+.toggle-container {
+  position: relative;
+  display: flex;
+  width: 45px;
+  height: 20px;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #2196F3;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+.theme{
+  display: flex;
+  justify-content: space-evenly;
+  // border-bottom:1px solid grey;  
+  margin-bottom:120px;
+}
+.profile-info{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding:0;
+  margin:0;
+}
+
+/* Default styles for larger screens */
+.sidebar-wrapper {
+  width: 200px;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.theme-name{
+  font-weight:800;
+  font-size:18px;
+  color:#FFFFFF
+}
+
+@media screen and (max-width: 580px) {
+  mat-sidenav {
+    width: 140px !important;
+  }
+  .Relinns_logo {
+    width: 30px;
+    height: 35px;
+  }
+  .spacer {
+    flex: 0.3; /* This pushes the refresh button to the right */
+  }
+  .date-time {
+    
+    margin-left: 6%;
+    font-size: x-small;
+     
+  }
+  .sr-only{
+    font-size: small;
+  }
+}
+@media screen and (max-width: 780px) {
+  .spacer {
+    flex: 0.7; /* This pushes the refresh button to the right */
+  }
+}
+@media screen and (max-width: 380px) {
+  .spacer {
+    flex: 0.1; /* This pushes the refresh button to the right */
+  }
+}
+@media screen and (max-width: 710px) {
+  .spacer {
+    flex: 0.7; /* This pushes the refresh button to the right */
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .list-item-align
+  {
+    margin-left: -400px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .list-item-align{
+    margin-left: -50px;
+  }
+  .spacer{
+    .spacer {
+      flex: 0.1;
+    }
+  }
+}
+.Relinns_logo{
+  cursor: pointer;
+}

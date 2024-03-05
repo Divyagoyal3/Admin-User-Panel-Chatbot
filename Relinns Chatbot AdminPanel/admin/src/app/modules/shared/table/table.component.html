@@ -1,0 +1,87 @@
+<div class="outer-div">
+  <div class="main-container">
+    <div class="search-bar">
+      <input class="search-input search" type="text" placeholder="Search..." />
+      <div class="search-btn-div">
+        <button class="search-button">Export Report</button>
+      </div>
+    </div>
+    <table class="myTable table-striped table-dark">
+      <thead>
+        <tr class="table-row">
+          <th class="heading" scope="col" *ngFor="let item of heading">
+            {{ item.text
+            }}<span><img class="arrow" src="./assets/sort.svg" alt="" /></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of data">
+          <td class="table-data" *ngFor="let col of heading">
+            <span *ngIf="col.type === 'inputText'">
+              <a class="clicked-data" *ngIf="col.id === 'name' || col.id=== 'Project_Id'; else otherContent" (click)="showUser(row)">
+                {{ row[col.id] }}
+              </a>
+              <ng-template #otherContent>
+                <!-- Content to show when col.id is not 'name' -->
+                <span>
+                  <!-- Add your alternate content or action here -->
+                  {{ row[col.id] }}
+                </span>
+              </ng-template>
+            </span>
+            
+            
+            
+            <span *ngIf="col.type === 'image'">
+              <a href="#" (click)="showUser(row)">
+                <img
+                  *ngIf="row[col.id]"
+                  class="table-image"
+                  src="{{ row[col.id] }}"
+                  alt="img"
+                />
+              </a>
+            </span>
+            <span *ngIf="col.type === 'toggle'">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </span>
+          </td>
+          <!-- <td class="table-data" *ngIf="button">
+            <div class="d-flex">
+              <button class="button" id="edit">Edit</button>
+            <button class="button" id="delete">Delete</button>
+            <button class="button" id="block">Block</button>
+            </div>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <div class="pagination-container d-flex">
+        <div class="left-container d-flex align-items-center position-relative">
+          <p class="mb-0">Showing 1 to 3 of 20 entries</p>
+          <!-- <ul class="select-box-dropdown">
+                <li  class="options-box justify-content-between" >
+                    <span >3</span>
+                    <img src="assets/images/dropdown-check.svg" alt="">
+                </li>
+            </ul> -->
+          <!-- <div class="pagination-dropdown d-flex align-items-center justify-content-center" >
+                <span>1</span>
+            </div>   -->
+        </div>
+        <div class="right-container">
+          <img src="/assets/double-left-arrow.svg" class="arrow arrow-icon" />
+          <img src="/assets/single-left-arrow.svg" class="arrow arrow-icon" />
+          <span class="active-page">1</span>
+          <img src="/assets/single-right-arrow.svg" class="arrow arrow-icon" />
+          <img src="/assets/double-right-arrow.svg" class="arrow arrow-icon" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

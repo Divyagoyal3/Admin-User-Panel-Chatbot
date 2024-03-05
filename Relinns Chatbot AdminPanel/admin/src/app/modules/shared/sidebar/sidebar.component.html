@@ -1,0 +1,115 @@
+
+<div class="main-container">
+  <div class="sidebar-wrapper" [ngClass]="{ 'sidebar-wrapper-new': toggleSidebar }">
+    <div class="image">
+      <img
+        class="relinns-logo"
+        src="./assets/images/relinns logo.png"
+        alt="relinns"
+        (click)="toggleSidebarFn()"
+      />
+      <!-- <h3>R <br>Time</h3> -->
+    </div>
+    <div class="side-data">
+      <ul>
+        <a>
+          <li
+          routerLink="/dashboard"
+          (click)="dashboard()"
+          routerLinkActive="active-link"
+          class="side-link">
+            <span class="nav-text">
+              <img
+                class="side-icons"
+                src="/assets/dashboard-icon.svg"
+                alt="DashBoard"
+              />
+              <span class="side-text">DashBoard</span>
+            </span>
+          </li>
+        </a>
+        <a>
+          <li
+            routerLink="/usermanagement"
+            (click)="usermanagent()"
+            routerLinkActive="active-link"
+            class="side-link"
+          >
+            <span class="nav-text">
+              <img
+                class="side-icons"
+                src="/assets/user-icon.svg"
+                alt="user Management"
+              />
+              <span class="side-text">User Management</span>
+            </span>
+          </li>
+        </a>
+        <a>
+          <li
+            routerLink="/timesheet"
+            (click)="timesheet()"
+            routerLinkActive="active-link"
+            class="side-link"
+          >
+            <span class="nav-text timesheet">
+              <img
+                class="side-icons timesheet-container"
+                src="/assets/customer-icon.svg"
+                alt="timesheet"
+              />
+              <span class="side-text">Timesheet</span>
+            </span>
+          </li>
+        </a>
+        <!-- <a>
+          <li
+            routerLink="/chatbot"
+            routerLinkActive="active-link"
+            class="side-link"
+          >
+            <span class="nav-text timesheet">
+              <img
+                class="side-icons timesheet-container"
+                src="./assets/bots-icon.svg"
+                alt="chatbot"
+              />
+              <span class="side-text">Chat Bot</span>
+            </span>
+          </li>
+        </a> -->
+        <!-- <a><li> -->
+
+        <!-- <span class="nav-text">
+           <img class="side-icons" src="./assets/master-icon.svg" alt="timesheet">
+           <span class="side-text">Master Control</span>
+          </span> -->
+        <!-- </li></a> -->
+      </ul>
+    </div>
+    <div class="theme">
+      <div class="theme-name">Theme</div>
+      <div class="theme-icon">
+        <label class="toggle-container">
+          <input type="checkbox" class="toggle-input" (change)="toggleTheme()" [checked]="isDarkMode" />
+
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="profile">
+      <div class="user-image-container">
+        <a href=""
+          ><img class="user-image" src="/assets/user-image.png" alt="user"
+        /></a>
+      </div>
+
+      <div class="profile-info">
+        <p class="admin-name">Akhil Rawat</p>
+        <p class="admin-location">Chandigarh, India</p>
+      </div>
+    </div>
+  </div>
+  <div class="router-container"></div>
+</div>

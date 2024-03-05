@@ -1,0 +1,121 @@
+.main-container {
+    display:flex;
+    flex-direction: column;
+    margin-top: 2%;
+    padding: 20px;
+    margin-left:25px;
+    margin-right: 10px !important;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    background-color: #121212 !important;
+  }
+  
+
+  
+  .heading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+
+
+
+h2 {
+  color: white;
+  
+  
+  
+}
+.timesheet-heading{
+  display: flex;
+  width:100%;
+  // border:1px solid white;
+  align-items: center;
+  column-gap: 6px;
+}
+.timesheet-icon{
+  display:flex;
+  align-items: center;
+  margin:0;
+}
+.separator {
+  width: 100%;
+  // margin-top: 10px;
+  margin-bottom: 20px;
+  border: none;
+  height: 0.1px;
+  background-color: #eee;
+ 
+}
+h2{
+  margin:0;
+}
+@media screen and (max-width: 780px) {
+  .button-container{
+     display:flex;
+     flex-direction: column;
+
+  }
+  .add-button{
+    margin-left: 63px !important;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .add-button,.dropdown-select {
+    
+    padding: 30px ;
+}
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.dropdown-select {
+  background-color:rgb(83,115,255) !important;
+  color: white;
+  border: none;
+  padding: 12px 40px 12px 20px; 
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 24px;
+  margin-left: 30px !important;
+  font-weight: 600;
+  transition: all 0.3s ease; 
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-size: 15px !important;
+
+}
+
+.add-button {
+  background-color: rgb(83,115,255) !important;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 30px !important;
+  font-weight: 600;
+  transition: all 0.3s ease; 
+  padding: 12px 40px 12px 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-size:15px !important;
+}
+
+.dropdown-select:hover,
+.add-button:hover {
+  background-color: rgb(83,115,255) !important;
+}
+

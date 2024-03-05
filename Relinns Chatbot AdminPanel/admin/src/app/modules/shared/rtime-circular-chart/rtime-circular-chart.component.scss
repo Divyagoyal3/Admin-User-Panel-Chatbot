@@ -1,0 +1,140 @@
+.main-container {
+  width: 100%;
+  background-color: var(--sub-bg-color);
+  height: 100%;
+  padding: 20px;
+  border-radius: 18px;
+ 
+
+  .top-bar {
+    .graph-label {
+      color: var(--text-color);
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .graph-icons {
+      // color: var(--text-color) !important;
+      -webkit-filter: drop-shadow(1px 1px 0 var(--text-color)) drop-shadow(-1px -1px 0 var(--text-color));
+      filter: drop-shadow(0px 1px 0 var(--text-color)) drop-shadow(0px 0px 0 var(--text-color));
+    }
+
+    margin-bottom: 30px;
+  }
+
+  .label-container {
+    margin-top: 30px;
+    background-color: var(--bg-color);
+    padding: 18px;
+    border-radius: 18px;
+
+    .label {
+
+      // margin-bottom: 7px;
+      .dot {
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      .label-title {
+        color: var(--text-color);
+        opacity: 50%;
+      }
+
+      .label-value {
+        color: var(--text-color);
+      }
+    }
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .country-icon {
+    margin-right: 15px;
+  }
+
+  .country-dropdown-container {
+    position: absolute;
+    top: 47px;
+    right: 0;
+    width: 60%;
+    background: var(--primary-white);
+    z-index: 1;
+    border-radius: 12px;
+    background-color: var(--primary-black);
+    border: 1px solid var(--vivid-yellow);
+    color: var(--primary-white);
+    padding: 10px;
+
+    .country-dropdown {
+      overflow: auto;
+      max-height: 100px;
+    }
+
+    .country {
+      padding: 7px 0 0;
+    }
+
+    .country:hover {
+      color: var(--primary-color);
+      cursor: pointer;
+    }
+  }
+
+  .search-icon {
+    top: 9px;
+    left: 10px;
+    width: 20px;
+    height: 15px;
+  }
+
+  .selected-option {
+    color: var(--primary-color) !important;
+  }
+
+  .kardi-search-field {
+    width: 100%;
+    font-family: "NotoSans-Regular";
+    border-color: transparent;
+    background-color: #1b1b1b;
+    padding: 5px;
+    color: var(--primary-white);
+    border-radius: 6px;
+    outline: none;
+    font-size: 15px;
+    padding-left: 35px;
+  }
+
+  .kardi-search-field:-webkit-autofill {
+    -webkit-text-fill-color: var(--primary-white);
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  .calendar-picker {
+    position: absolute;
+    max-width: 25px;
+    max-height: 25px;
+    display: block;
+    top: 20px;
+    right: 20px;
+    z-index: -1;
+    opacity: 0;
+
+    .calendar-input {
+      width: 25px;
+      cursor: pointer !important;
+    }
+
+    .toggle {
+      position: absolute;
+      top: 0;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.json"],
+        "createDefaultProgram": true
+      },
+
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "no-implicit-coercion": "error",
+        "no-undef-init": "error",
+        "no-undefined": "error",
+        "callback-return": "error",
+        "no-return-await": "error",
+        "no-async-promise-executor": "error",
+        "no-duplicate-imports": "error",
+        "arrow-spacing": "error",
+        "comma-spacing": "error",
+        "no-extra-semi": "error",
+        "semi-spacing": "error",
+        "no-underscore-dangle": "off",
+        "no-control-regex": "error",
+        "no-regex-spaces": "error",
+        "no-div-regex": "error",
+        "no-empty-character-class": "error",
+        "no-self-assign": "error",
+        "no-self-compare": "error",
+        "no-useless-concat": "error",
+        "no-useless-escape": "error",
+        "no-useless-return": "error",
+        "no-void": "error",
+        "no-with": "error",
+        "prefer-regex-literals": "error",
+        "no-catch-shadow": "error",
+        "no-mixed-requires": "error",
+        "no-process-env": "error",
+        "no-extra-bind": "error",
+        "no-unsafe-finally": "error",
+        "no-unsafe-negation": "error",
+        "no-new-wrappers": "error",
+        "no-throw-literal": "error",
+        "no-iterator": "error",
+        "no-multi-str": "error",
+        "no-native-reassign": "error",
+        "no-new-object": "error",
+        "no-redeclare": "error",
+        "no-shadow-restricted-names": "error",
+        "require-yield": "error",
+        "yoda": "error",
+
+        "no-var": "error",
+        "no-sync": "error",
+        "prefer-promise-reject-errors": "error",
+        "require-await": "error",
+        "prefer-template": "error",
+        "prefer-arrow-callback": "error",
+        "prefer-const": "error",
+        "prefer-destructuring": ["error", { "object": true, "array": false }],
+        "prefer-rest-params": "error",
+        "prefer-spread": "error",
+        "template-curly-spacing": ["error", "always"],
+        "no-eval": "error",
+        "no-implied-eval": "error",
+        "no-new-func": "error",
+        "no-script-url": "error",
+        "no-use-before-define": "error",
+        "no-implicit-globals": "error",
+        "id-length": ["error", { "min": 1, "max": 50 }],
+        "camelcase": "off",
+        "consistent-this": ["error", "self"],
+        "func-names": "error",
+        "complexity": ["error", { "max": 40 }],
+        "no-nested-ternary": "error",
+        "max-len": ["error", { "code": 140 }],
+        "max-lines": ["error", 600],
+        "max-depth": ["error", { "max": 3 }],
+        "no-process-exit": "error",
+        "no-buffer-constructor": "error",
+        "no-path-concat": "error",
+        "no-new-require": "error",
+        "indent": ["error", 2],
+        "semi": ["error", "always"],
+        "quotes": ["error", "single"],
+        "comma-dangle": ["error", "always-multiline"],
+        "object-curly-spacing": ["error", "always"],
+        "array-bracket-spacing": ["error", "always"],
+        "arrow-parens": ["error", "always"],
+        "no-trailing-spaces": "error",
+        "linebreak-style": ["error", "unix"],
+        "no-global-assign": "error",
+        "no-restricted-properties": [
+          "error",
+          { "object": "Buffer", "property": "from" },
+          { "object": "Buffer", "property": "allocUnsafe" }
+        ],
+        "strict": ["error", "global"],
+        "handle-callback-err": ["error", "^.*(e|E)rr"],
+        "no-console": "off",
+        "no-empty-function": "error",
+        "sort-imports": "error",
+        "eol-last": "error",
+        "space-before-blocks": "error",
+        "space-before-function-paren": ["error", "always"],
+        "space-in-parens": "error",
+        "space-infix-ops": "error",
+        "space-unary-ops": "error",
+
+        "@angular-eslint/directive-selector": [
+          "off",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    }
+  ]
+}

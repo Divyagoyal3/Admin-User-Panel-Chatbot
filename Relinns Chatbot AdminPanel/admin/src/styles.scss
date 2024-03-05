@@ -1,0 +1,111 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$zoho-admin-primary: mat.define-palette(mat.$indigo-palette);
+$zoho-admin-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$zoho-admin-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$zoho-admin-theme: mat.define-light-theme((
+  color: (
+    primary: $zoho-admin-primary,
+    accent: $zoho-admin-accent,
+    warn: $zoho-admin-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($zoho-admin-theme);
+
+/* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body{
+  --text-color: black;
+  --bg-color:rgb(241, 235, 235);
+  --sub-bg-color:white;
+  --secondary-bg-color: rgb(208, 207, 207);
+  --tart-orange:#ff4747;
+  --light-pink: #ef42421f;
+  --primary-green: #13b542;
+  --light-green: #13b5421a;
+  --primary-color: #5371ff;
+  --blue-color:#2196F3;
+  --sidebar-hover:rgb(241, 235, 235);
+  --grey-color:rgba(255, 255, 255, 0.5);
+  --icons:rgb(241, 235, 235);
+}
+
+body.dark-theme{
+  --text-color: white;
+  --bg-color: #121212;
+  --sub-bg-color: black;
+  --secondary-bg-color: #111111;
+  --tart-orange:#ff4747;
+  --light-pink: #ef42421f;
+  --primary-green: #13b542;
+  --light-green: #13b5421a;
+  --primary-color: #5371ff;
+  --blue-color:#2196F3;
+  --sidebar-hover:#555;
+  --grey-color:rgba(255, 255, 255, 0.5);
+  --icons:white;
+  
+}
+
+*{
+  font-family: "NotoSans-Regular";
+}
+/* Dark Theme Styles */
+// .dark-theme {
+//   background-color: #121212;
+//   color: #ffffff;
+// }
+.swal2-modal {
+  background-color:var(--bg-color);
+  padding:15px;
+  margin:0px;
+  border:2px solid  var(--sidebar-hover);
+  border-radius: 15px;
+}
+
+.mat-typography p {
+  margin:5px 0;
+  color:var(--primary-color);
+}
+
+.swal2-actions{
+  margin:5px 0;
+  width:100%;
+}
+.swal2-info {
+  border-color: var(--sidebar-hover);
+  color: var(--primary-color);
+}
+.swal2-html-container{
+  color:var(--text-color) !important;
+}
+.swal2-icon{
+  margin: .5em auto 0.6em;
+}
+.mat-typography h2{
+  margin:0;
+  color:var(--text-color);
+}

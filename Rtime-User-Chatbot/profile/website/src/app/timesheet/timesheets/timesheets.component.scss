@@ -1,0 +1,47 @@
+// Chatbot UI
+.mat-icon-position{
+  position:fixed;
+  right:2%;
+  bottom:10%;
+  cursor: pointer;
+  font-size: 24px; /* Adjust the font size as needed */
+  color: #333; /* Adjust the color for the light theme */
+  transition: color 0.3s ease;
+  border-radius: 50%;
+  width:80px;
+  height: 80px;
+ 
+ 
+  &:hover {
+    color: var(--primary-color); /* Adjust the hover color for the light theme */
+  }
+ }
+ 
+ @media screen and (max-width: 400px) {
+  .mat-icon-position {
+    position: fixed;
+    bottom: 10px; /* Adjust the distance from the bottom */
+    right: 10px; /* Adjust the distance from the right */
+    top: auto; /* Reset top positioning */
+    transform: none; /* Reset scale transformation */
+  }
+}
+
+ 
+ @media screen and (max-width:826px){
+   .mat-icon-position{
+     position:fixed;
+     top:auto;
+     bottom: 10px;
+     right:10px;
+     transform: none;
+   }
+ }
+ @media screen and (max-width:1031px){
+   .mat-icon-position{
+     position:fixed;
+     bottom:10px;
+     right:10px;
+   }
+ }
+ 

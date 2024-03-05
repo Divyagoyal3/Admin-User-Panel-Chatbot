@@ -1,0 +1,151 @@
+
+.outer-container{
+  display: grid;
+  background-color: #1B1B1B;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-gap: 20px;
+    margin-top: 0%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #1B1B1B;
+    .a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  
+    .items {
+      padding: 20px;
+      border-radius: 5px;
+      background-color: #dbd6d6; // Light gray background color
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: inline; // Subtle box shadow
+      @media screen and (max-width: 400px) {
+        .items {
+
+          display: block; /* Change display to block for screens up to 400px wide */
+          /* Add any other styles you need for screens up to 400px wide */
+          background-color: #000000;
+        }
+      }
+    }
+  
+    h2 {
+      margin-bottom: 10px;
+      color: white; // Dark text color for headings
+    }
+  
+    h4 {
+      margin: 0; // Remove default margin
+      color: white;
+       // Medium dark text color for content
+    }
+    #item0{
+      grid-column: 1/-1;
+      background-color: black;
+      color: white;
+      
+      }
+      
+      
+
+
+ 
+    }
+    #item1 {
+      grid-row: 2 / span 3;
+      background-color: black;
+      // color:white; // Span two rows
+      h4{
+        color:white;
+      }
+      h2{
+        color:white;
+      }
+    }
+  
+
+    #item4 {
+      text-align: center;
+      background-color: black; // Center align text in the last item
+    }
+    #item2{
+      background-color: black;
+      h2{
+        color:white;
+      }
+    }
+    #item3{
+      background-color: #000000;
+      color:white;
+    }
+  
+  
+  
+.info-container {
+    display: grid;
+    grid-gap: 10px;
+    background-color: #1B1B1B;
+    grid-template-columns: 1fr 1fr; // Equal width columns
+    padding: 20px; // Add some padding around the container
+  
+    .info-items {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 5px;
+      color:white;
+      background-color: #000000; // White background for items
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Drop shadow for items
+  
+      label {
+        font-weight: bold;
+        width: 100px; // Fixed width for labels
+        margin-right: 10px; // Add some space between label and input
+      }
+  
+      input[type="date"],
+      input[type="text"],
+      input[type="time"],
+      textarea,
+      select {
+        flex: 1; // Grow to fill available space
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 14px;
+        background-color: #b3adad;
+      }
+  
+      select {
+        width: 100%; // Full width select
+      }
+  
+      textarea {
+        resize: vertical; // Allow vertical resizing of textarea
+      }
+    }
+  
+    #info-item6 ,#info-item0{
+      grid-column: 1 / -1; // Span all columns
+    }
+    #info-item0{
+      background-color: black;
+      color:white
+    }
+  
+    #info-item5 {
+      grid-column: 1 ; // Span all columns
+      padding: 10px; // Add padding to make it visually distinct
+      font-weight: bold; // Make text bold
+    }
+  
+    #info-item7 {
+      grid-column: 1 ; // Span all columns
+      padding: 10px; // Add padding to make it visually distinct
+    }
+}

@@ -1,0 +1,46 @@
+
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html, body { 
+ height: 100%;
+ }
+body 
+{ 
+    margin: 0; 
+ }
+
+.swal2-modal {
+    background-color: black;
+    padding:15px;
+    margin:0px;
+    border:2px solid grey;
+    border-radius: 15px;
+    width:450px;
+}
+
+.mat-typography p {
+    margin:5px 0;
+    color:rgb(83,115,255);
+}
+.mat-typography h2{
+    color:white;
+}
+.swal2-actions{
+    margin:5px 0;
+    width:100%;
+}
+*{
+    font-family:"NotoSans-Regular" !important;
+    font-size:20px;
+}
+.swal2-html-container{
+    margin:0;
+    color:white !important;
+    
+}
+
+.mat-drawer {
+    transform: translate3d(-50%,0,0);
+}

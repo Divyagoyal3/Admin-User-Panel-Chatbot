@@ -1,0 +1,54 @@
+<div class="outer-container">
+    <div class="container">
+        <div class="items" id="item0">
+            <div class="a">
+                <div class="b">{{selectedOption}}</div>
+                <div class="c"><button (click)="back()" class="back"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="16" height="16" fill="currentColor" class="x-back" viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="items" id="item1">
+            <h2>Total Log Hours</h2>
+            <h4>{{totalHours}} Hours {{totalMinutes}} Minutes</h4>
+            <h4>Timesheet Log: {{selectedStartTime}} to {{selectedEndTime}}</h4>
+        </div>
+        <div class="items" id="item2">
+            <h2>Billing Type</h2>
+            <h4>Billable</h4>
+        </div>
+        <div class="items" id="item3">
+            <h2>Approval Status</h2>
+            <h4>Pending</h4>
+        </div>
+        <div class="items" id="item4">
+            <h2>Date</h2>
+            <h4>{{selectedDate}}</h4>
+        </div>
+    </div>
+    <div class="info-container">
+        <div class="info-items" id="info-item0">Timesheet Information</div>
+        <div class="info-items" id="info-item1"><label>Date</label><input type="text" value="{{selectedDate}}"
+                style="background-color: #121212;color:white;border:unset"></div>
+        <div class="info-items" id="info-item2"><label>User</label><input type="text" value="{{selectedUser}}"
+                style="background-color: #121212;color:white;border:unset"></div>
+        <div class="info-items" id="info-item3"><label>Daily Log*</label><input type="text"
+                value="{{totalHours}} Hours {{totalMinutes}} Minutes"
+                style="background-color: #121212;color:white;border:unset"></div>
+        <div class="info-items" id="info-item4" style="background-color: #121212;color:white;border:unset">
+            <label>Billing Type</label><select style="background-color: #121212;color:white;border:unset">
+                <option style="background-color: #121212;color:white;border:unset">Billing</option>
+                <option style="background-color: #121212;color:white;border:unset">Non Billable</option>
+            </select>
+        </div>
+        <div class="info-items" id="info-item5"><label>Approval Status</label>Pending</div><br>
+        <div class="info-items" id="info-item6"><label>Notes</label><input type="text" value="{{selectedNotes}}"
+                style="background-color: #121212;color:white;border:unset" /></div>
+        <div class="info-items" id="info-item7"><label>Added By</label>{{selectedUser}}</div>
+    </div>
+</div>

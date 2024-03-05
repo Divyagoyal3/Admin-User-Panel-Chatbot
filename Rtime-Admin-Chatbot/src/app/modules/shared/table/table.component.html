@@ -1,0 +1,108 @@
+<div class="outer-div">
+  <div class="main-container-div">
+    <div class="search-bar">
+      <input
+        class="search-input search"
+        type="text"
+        [(ngModel)]="searchQuery"
+        name="searchData"
+        placeholder="Search..."
+        (keydown.enter)="sendDataToParent(searchQuery)"
+      />
+      <div class="search-btn-div">
+        <button class="search-button" (click)="exportexcel()" *ngIf="error">
+          Export Report
+        </button>
+      </div>
+    </div>
+    <table
+      id="excel-table"
+      *ngIf="error; else showError"
+      class="myTable table-striped table-dark"
+    >
+      <thead>
+        <tr class="table-row">
+          <th class="heading" scope="col" *ngFor="let item of userData.thead">
+            {{ item.text
+            }}<span
+              ><img
+                *ngIf="item.id !== 'profilePic' && item.id !== 'action'"
+                class="arrow"
+                src="./assets/sort.svg"
+                alt=""
+                (click)="sort(item.text)"
+            /></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+            *ngFor="
+              let row of userData.tbody
+                | orderBy : key : reverse
+                | paginate : { itemsPerPage: 100, currentPage: p }
+            "
+        >
+        <td class="table-data" *ngFor="let col of userData.thead">
+          <div *ngIf="col.type === 'inputText'" class="user-text">
+            <a
+              class="clicked-data user-text"
+              *ngIf="
+                col.id === 'name' || col.id === 'Project_Id';
+                else otherContent
+              "
+              (click)="showUser(row)"
+            >
+              {{ row[col.id] }}
+            </a>
+            <ng-template #otherContent>
+              <!-- Content to show when col.id is not 'name' -->
+              <div class="user-text">
+                <!-- Add your alternate content or action here -->
+                {{ row[col.id] }}
+              </div>
+            </ng-template>
+          </div>
+          <span *ngIf="col.type === 'image'">
+            <a href="#" (click)="showUser(row)" class="user-text">
+              <img
+                *ngIf="row[col.id]"
+                class="table-image"
+                src="{{ row[col.id] }}"
+                alt="img"
+              />
+            </a>
+          </span>
+          <span *ngIf="col.type === 'role'">
+            <p class="user-text">{{ row[col.id].name }}</p>
+          </span>
+          <span *ngIf="col.type === 'toggle'">
+            <ng-container *ngIf="row.status===true; else other">
+              <label class="switch"  >
+                <input type="checkbox" checked (change)="toggleFunction(row.email,false)">
+                <span class="slider round"></span>
+              </label>
+            </ng-container>
+            <ng-template #other>
+              <label class="switch">
+                <input type="checkbox"  (change)="toggleFunction(row.email,true)">
+                <span class="slider round"></span>
+              </label>
+            </ng-template>
+          </span>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #showError>
+      <p class="error">No Data Found</p>
+    </ng-template>
+    <div class="pagination" *ngIf="error">
+      <div class="pagination-container d-flex">
+        <div class="left-container d-flex align-items-center position-relative">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

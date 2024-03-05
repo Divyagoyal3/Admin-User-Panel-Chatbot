@@ -1,0 +1,45 @@
+.main-container {
+  position: fixed;
+  left:15%;
+  top:5%;
+  padding:20px;
+  .top-section {
+    display: flex;
+    width:calc(100vw - 250px);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    // margin-left: 200px;
+    margin-bottom:15px;
+    .date-container {
+      color: var(--primary-white);
+      display: inline-block;
+      background-color: var(--primary-black);
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+    .refresh-container {
+      background-color: var(--primary-black);
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: var(--primary-green);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      span {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+.timesheet-container{
+  color: white;
+  // margin-left:210px;
+  font-size:20px;
+  padding-left:15px;
+}
+.large-container{
+  position:relative;
+}
+.refresh-txt{
+  font-weight: bolder;
+}
